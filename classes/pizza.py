@@ -71,4 +71,4 @@ class pizzaFactory:
         elif divided.lower() == "n":
             return Pizza()
         else:
-            raise Exception("Opción no válida")
+            return Pizza()
