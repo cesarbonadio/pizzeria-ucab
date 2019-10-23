@@ -46,14 +46,14 @@ class DividedPizza(Pizza):
             if len(self.ingredients) < zone:
                 self.ingredients.append([])
             self.ingredients[zone-1].append(ingredient)
-            self.total += ingredient.cost/2
+            self.total += ingredient.cost/self.zones
         else:
             print("La pizza no está dividida en tantas partes")
 
     def deleteIngredient(self,ingredient,zone):
         if self.zones >= zone:
             self.ingredients[zone-1].remove(ingredient)
-            self.total += ingredient.cost/2
+            self.total += ingredient.cost/self.zones
         else:
             print("La pizza no está dividida en tantas partes")
 
