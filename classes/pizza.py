@@ -1,4 +1,4 @@
-from characteristic import Size
+from .characteristic import Size
 
 class Pizza:
 
@@ -11,13 +11,13 @@ class Pizza:
         self.ingredients.append(ingredient)
         self.total += ingredient.cost
 
+    def deleteIngredient(self,ingredient):
+        self.ingredients.remove(ingredient)
+        self.total -= ingredient.cost
+
     def changeSize(self,size):
         self.size = size
         self.total += size.cost
-
-    def showPizza(self):
-        print([x.name for x in self.ingredients])
-        print(self.size.name) if self.size != None else print("No tiene tamaño asignado")
 
     def showPizzaSummary(self):
         if len(self.ingredients)>0:

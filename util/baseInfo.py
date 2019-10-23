@@ -1,4 +1,4 @@
-from characteristic import *
+from classes.characteristic import *
 
 baseIngredients = [
     Ingredient("Jamón",40,"ja"),
@@ -11,6 +11,7 @@ baseIngredients = [
 ]
 
 baseSizes = [
+    Size("Familiar",650,"f"),
     Size("Grande",580,"g"),
     Size("Mediana",430,"m"),
     Size("Pequeña",280,"p")

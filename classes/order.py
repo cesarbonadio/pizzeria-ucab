@@ -1,4 +1,4 @@
-from pizza import Pizza
+from .pizza import Pizza
 
 class Order:
 
@@ -12,5 +12,3 @@ class Order:
         print("\nEl pedido tiene un total de {0} pizza(s) por un monto de {1}"
         .format(len(self.pizzas),sum([pizza.total for pizza in self.pizzas])))
         print("\nGracias por su compra, regrese pronto")
-
-    #se puede implementar funcionalidad de la moneda personalizada
