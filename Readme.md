@@ -1,1 +1,1 @@
-##Mini proyecto de pizzería para la electiva de python
+## Mini proyecto de pizzería para la electiva de python
