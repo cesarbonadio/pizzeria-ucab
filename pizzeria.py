@@ -21,22 +21,9 @@ if __name__ == '__main__':
             pizza = pizzaFactory.getPizza(zoneTopping, zones = zonesQuantity)
             order.addPizza(pizza)
             setPizzaSize(pizza,sizeOption)
-
-            for zone in range (1,pizza.zones+1):
-                if pizza.divided:
-                    print("\nToppings pizza {0} - zona {1}".format(len(order.pizzas),zone))
-                showBaseIngredients()
-                while True:
-                    ingredient = input("{0}".format(inputIngredient))
-                    if '-' in ingredient:
-                        deletePizzaIngredient(pizza,ingredient.replace("-",""),zone)
-                    elif ingredient != '':
-                        addPizzaIngredient(pizza,ingredient,zone)
-                    else:
-                        pizza.showPizzaSummary()
-                        break
+            setPizzaIngredients(pizza,order)
+            pizza.showPizzaSummary()
             break
         continueOrder = input("{0}".format(continueQuestion))
         if continueOrder.lower() == "n": break
-
     order.showOrderSummary()

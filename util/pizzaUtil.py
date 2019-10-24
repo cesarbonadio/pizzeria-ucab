@@ -50,3 +50,18 @@ def showBaseIngredients():
 
 def showPizzaSizes():
     return "\nOpciones:\nTamaños:" + ' '.join([str(size.name+"("+size.abbr+")"+str(size.cost)+"$") for size in baseSizes])
+
+
+def setPizzaIngredients(pizza,order):
+    for zone in range (1,pizza.zones+1):
+        if pizza.divided:
+            print("\nToppings pizza {0} - zona {1}".format(len(order.pizzas),zone))
+        showBaseIngredients()
+        while True:
+            ingredient = input("{0}".format(inputIngredient))
+            if '-' in ingredient:
+                deletePizzaIngredient(pizza,ingredient.replace("-",""),zone)
+            elif ingredient != '':
+                addPizzaIngredient(pizza,ingredient,zone)
+            else:
+                break
