@@ -1,4 +1,5 @@
 from .characteristic import Size
+from util.cliMsg import *
 
 class Pizza:
 
@@ -30,7 +31,7 @@ class Pizza:
         else:
             print("\n\nUsted seleccionó una pizza margarita (básica) {0}"
             .format(self.size.name))
-        print("Subtotal a pagar por una pizza {0}: {1}".format(self.size.name,self.total))
+        print("{0} {1}: {2}".format(pizzaSubtotal,self.size.name,self.total))
 
 
 
@@ -47,18 +48,19 @@ class DividedPizza(Pizza):
                 self.ingredients.append([])
             self.ingredients[zone-1].append(ingredient)
             self.total += ingredient.cost/self.zones
-        else:
-            print("La pizza no está dividida en tantas partes")
+
 
     def deleteIngredient(self,ingredient,zone):
         if self.zones >= zone:
             self.ingredients[zone-1].remove(ingredient)
             self.total += ingredient.cost/self.zones
-        else:
-            print("La pizza no está dividida en tantas partes")
+
 
     def showPizzaSummary(self):
-        pass
+        print("\n\nUsted seleccionó una pizza dividida")
+        for zone in self.ingredients:
+            print("Zona {0}: {1}".format(self.ingredients.index(zone)+1,','.join([ingredient.name for ingredient in zone])))
+        print("{0} {1} dividida: {2}".format(pizzaSubtotal,self.size.name,self.total))
 
 
 
