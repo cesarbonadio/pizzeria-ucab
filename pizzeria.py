@@ -12,8 +12,7 @@ if __name__ == '__main__':
         print("Pizza número {0}".format(len(order.pizzas)+1))
         while True:
             sizeOption = input("{0}:".format(showPizzaSizes()))
-            validSize = isValidSize(sizeOption)
-            if not validSize:
+            if not isValidSize(sizeOption):
                 print("{0}".format(sizeSelectionError))
                 continue
             zoneTopping = input("{0}".format(zoneQuestion))
