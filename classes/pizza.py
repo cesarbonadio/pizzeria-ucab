@@ -41,11 +41,14 @@ class DividedPizza(Pizza):
         super(DividedPizza,self).__init__()
         self.divided = True
         self.zones = zones
+        self._appendZones()
+
+    def _appendZones(self):
+        for i in range (0,self.zones):
+            self.ingredients.append([])
 
     def addIngredient(self,ingredient,zone):
         if self.zones >= zone:
-            if len(self.ingredients) < zone:
-                self.ingredients.append([])
             self.ingredients[zone-1].append(ingredient)
             self.total += ingredient.cost/self.zones
 
@@ -58,8 +61,11 @@ class DividedPizza(Pizza):
 
     def showPizzaSummary(self):
         print("\n\nUsted seleccionó una pizza dividida")
-        for zone in self.ingredients:
-            print("Zona {0}: {1}".format(self.ingredients.index(zone)+1,','.join([ingredient.name for ingredient in zone])))
+        for zone in range(0,len(self.ingredients)):
+            if len(self.ingredients[zone])>0:
+                print("Zona {0}: {1}".format(zone+1,','.join([ingredient.name for ingredient in self.ingredients[zone]])))
+            else:
+                print("Zona {0}: margarita".format(zone+1))
         print("{0} {1} dividida: {2}".format(pizzaSubtotal,self.size.name,self.total))
 
 
