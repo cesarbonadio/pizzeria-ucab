@@ -3,6 +3,7 @@ from classes.characteristic import Ingredient,Size
 from classes.order import Order
 from util.pizzaUtil import *
 from util.cliMsg import *
+from util.cliUtil import *
 
 
 if __name__ == '__main__':
@@ -15,14 +16,17 @@ if __name__ == '__main__':
             if not isValidSize(sizeOption):
                 print("{0}".format(sizeSelectionError))
                 continue
-            zoneTopping = input("{0}".format(zoneQuestion))
-            zonesQuantity = int(input("{0}".format(zoneOptions))) if zoneTopping.lower()=="s" else 0
+            zoneTopping = ynCliOption(zoneQuestion)
+            zonesQuantity = int(input("{0}".format(zoneOptions))) if zoneTopping else 0
             pizza = pizzaFactory.getPizza(zoneTopping, zones = zonesQuantity)
             order.addPizza(pizza)
             setPizzaSize(pizza,sizeOption)
             setPizzaIngredients(pizza,order)
             pizza.showPizzaSummary()
             break
-        continueOrder = input("{0}".format(continueQuestion))
-        if continueOrder.lower() == "n": break
+        continueOrder = ynCliOption(continueQuestion)
+        if continueOrder:
+            continue
+        else:
+            break
     order.showOrderSummary()

@@ -68,9 +68,9 @@ class pizzaFactory:
 
     @staticmethod
     def getPizza(divided,zones=2): #mitad por defecto
-        if divided.lower() == "s":
+        if divided:
             return DividedPizza(zones)
-        elif divided.lower() == "n":
+        elif not divided:
             return Pizza()
         else:
             return Pizza()
