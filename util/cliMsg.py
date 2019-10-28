@@ -1,4 +1,7 @@
-#Archivo para mantener separadas constantes de mensajes que se muestran por terminal y no sobrecargar codigo en otro lado
+'''
+    modulo para mantener separadas constantes de mensajes que se
+    muestran por terminal y no sobrecargar codigo en otro lado
+'''
 
 welcomeTitle = "\n\n***************\n*PIZZERIA UCAB*\n***************"
 zoneQuestion = "\n¿Quiere separar los toppings de la pizza por areas?[s/n]:"
